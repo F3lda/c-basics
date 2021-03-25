@@ -33,6 +33,10 @@ int main()
         // the strings are not same
     }
     
+    // check if string starts with string
+    if(strstr(tempString, "123") != NULL && strstr(tempString, "123") == tempString){
+    }
+    
     // trim
     
     // substr
