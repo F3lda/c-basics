@@ -11,6 +11,8 @@ void strtolower(char *str);
 
 int is_alphanumeric(char *str);
 
+void trim(char * str);
+
 int main()
 {
     char tempString[STATIC_STRING_LENGHT] = {0};
@@ -43,11 +45,24 @@ int main()
     }
     
     // trim
+	char temp[64] = "\r\n   Hello world!   \r\n";
+	trim(temp);
+	printf("<%s>\n",temp);
     
     // substr
 	// str between substrs (NULL => from start/end)
     
     return 0;
+}
+
+void trim(char * str)
+{
+	char * front = str;
+	while(isspace(*front)){front++;}
+	char * back = front+strlen(front);
+	while(isspace(*--back));
+    *(back+1) = '\0';
+	memcpy(str, front, back-front+2);
 }
 
 void strtoupper(char *str)
