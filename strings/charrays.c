@@ -45,6 +45,7 @@ int main()
     // trim
     
     // substr
+	// str between substrs (NULL => from start/end)
     
     return 0;
 }
