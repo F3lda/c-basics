@@ -9,6 +9,8 @@ void strtoupper(char *str);
 
 void strtolower(char *str);
 
+int is_alphanumeric(char *str);
+
 int main()
 {
     char tempString[STATIC_STRING_LENGHT] = {0};
@@ -63,3 +65,13 @@ void strtolower(char *str)
 	}
 }
 
+int is_alphanumeric(char *str)
+{
+	int i;
+	for(i = 0; i < strlen(str); i++){
+		if(!(('0' <= str[i] && str[i] <= '9') || ('a' <= file_url[i] && file_url[i] <= 'z') || ('A' <= file_url[i] && file_url[i] <= 'Z'))){
+			return 0;
+		}
+	}
+	return 1;
+}
