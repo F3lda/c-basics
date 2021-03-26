@@ -6,6 +6,8 @@
 
 void strtoupper(char *str);
 
+void strtolower(char *str);
+
 int main()
 {
     char tempString[STATIC_STRING_LENGHT] = {0};
@@ -51,3 +53,12 @@ void strtoupper(char *str)
 		str++;
 	}
 }
+
+void strtolower(char *str)
+{
+	while (*str) {
+		*str = tolower((unsigned char) *str);
+		str++;
+	}
+}
+
