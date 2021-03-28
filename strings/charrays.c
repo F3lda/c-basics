@@ -55,6 +55,26 @@ int main()
     return 0;
 }
 
+void strsubstr(char str[], char substr1[], char substr2[], char *returnArray)
+{	//TODO
+    char *start, *end;
+    start = strstr(str, substr1);
+    if(start != NULL){
+        start += strlen(substr1);
+        end = strstr(start, substr2);
+        if(end != NULL){
+            char target[(end - start)+1];
+            memcpy(target, start, end - start);
+            target[end - start] = '\0';
+            strcpy(returnArray,target);
+        } else {
+            strcpy(returnArray,"");
+        }
+    } else {
+        strcpy(returnArray,"");
+    }
+}
+
 void trim(char * str)
 {
 	char * front = str;
