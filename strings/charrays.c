@@ -77,28 +77,22 @@ void strsubstr(char str[], char substr1[], char substr2[], char *returnArray)
 
 void trim(char * str)
 {
-	char * front = str;
-	while(isspace(*front)){front++;}
+	char * front = str-1;
+	while(isspace(*++front));
 	char * back = front+strlen(front);
 	while(isspace(*--back));
-    *(back+1) = '\0';
-	memcpy(str, front, back-front+2);
+	*(++back) = '\0';
+	if(front != str) memcpy(str, front, back-front+1);
 }
 
 void strtoupper(char *str)
 {
-	while (*str) {
-		*str = toupper((unsigned char) *str);
-		str++;
-	}
+	while(*str) *(str++) = toupper((unsigned char) *str);
 }
 
 void strtolower(char *str)
 {
-	while (*str) {
-		*str = tolower((unsigned char) *str);
-		str++;
-	}
+	while(*str) *(str++) = tolower((unsigned char) *str);
 }
 
 int is_alphanumeric(char *str)
