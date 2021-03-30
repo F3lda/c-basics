@@ -41,6 +41,7 @@ int main()
     }
     
     // check if string starts with string
+	strncmp(tempString, "123", 3);
     if(strstr(tempString, "123") != NULL && strstr(tempString, "123") == tempString){
     }
     
