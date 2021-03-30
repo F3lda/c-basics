@@ -52,6 +52,14 @@ int main()
     // substr
 	// str between substrs (NULL => from start/end)
     
+	// strcat
+	char strRequest[255] = "GET ";
+	memcpy(&strRequest[strlen(strRequest)], file_url, STATIC_STRING_SIZE-1-strlen(strRequest));
+	memcpy(&strRequest[strlen(strRequest)], " FSP/1.0\r\nHostname: ", STATIC_STRING_SIZE-1-strlen(strRequest));
+	memcpy(&strRequest[strlen(strRequest)], file_server_name, STATIC_STRING_SIZE-1-strlen(strRequest));
+	memcpy(&strRequest[strlen(strRequest)], "\r\nAgent: name\r\n\r\n", STATIC_STRING_SIZE-1-strlen(strRequest));
+	
+	
     return 0;
 }
 
