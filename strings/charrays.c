@@ -93,9 +93,9 @@ void trim(char * str)
     while(isspace(*++front));
     char * back = front+strlen(front);
     if(front[0] != 0){
-    while(isspace(*--back));
-    *(++back) = '\0';}
-    if(front != str) memcpy(str, front, back-front+1);
+        while(isspace(*--back));
+        *(++back) = '\0';}
+    if(front != str){memcpy(str, front, back-front+1);}
 }
 
 void strtoupper(char *str)
