@@ -63,6 +63,11 @@ int main()
 	memcpy(&strRequest[strlen(strRequest)], file_server_name, STATIC_STRING_SIZE-1-strlen(strRequest));
 	memcpy(&strRequest[strlen(strRequest)], "\r\nAgent: name\r\n\r\n", STATIC_STRING_SIZE-1-strlen(strRequest));
 	
+	// strcat speciale
+	char buf[100] = {0};
+	snprintf(buf, sizeof(buf), “%s”, “this is “);
+	snprintf(buf+strlen(buf), sizeof(buf)-strlen(buf), “%s”, ” correct”);
+	
 	
     return 0;
 }
