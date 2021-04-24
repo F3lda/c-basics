@@ -89,12 +89,13 @@ void strsubstr(char str[], char substr1[], char substr2[], char *returnArray)
 
 void trim(char * str)
 {
-	char * front = str-1;
-	while(isspace(*++front));
-	char * back = front+strlen(front);
-	while(isspace(*--back));
-	*(++back) = '\0';
-	if(front != str) memcpy(str, front, back-front+1);
+    char * front = str-1;
+    while(isspace(*++front));
+    char * back = front+strlen(front);
+    if(front[0] != 0){
+    while(isspace(*--back));
+    *(++back) = '\0';}
+    if(front != str) memcpy(str, front, back-front+1);
 }
 
 void strtoupper(char *str)
