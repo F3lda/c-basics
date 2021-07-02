@@ -43,7 +43,7 @@ int main()
     // check if string starts with string
     if(strncmp(tempString, "123", 3) == 0){
     }
-    if(strstr(tempString, "123") == tempString){
+    if(strstr(tempString, "123") == tempString && tempString != NULL){
     }	
     if(strstr(tempString, "123") != NULL && strstr(tempString, "123") == tempString){
     }
