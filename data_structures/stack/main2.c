@@ -1,21 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
 #define STACK_INT_TO_DATA(x) (ParserStackData)((int)x)
-#define STACK_TERM_TO_DATA(x) (ParserStackData)((Term_type)x)
-#define STACK_SYMTABLE_TO_DATA(x) (ParserStackData)((SymTableBinTreePtr)x)
-#define STACK_TOKEN_TO_DATA(x) (ParserStackData)((Token)x)
-#define STACK_TOKEN_TYPE_TO_DATA(x) (ParserStackData)((Token_type)x)
+#define STACK_CHAR_TO_DATA(x) (ParserStackData)((char)x)
+#define STACK_FLOAT_TO_DATA(x) (ParserStackData)((float)x)
+#define STACK_TOKEN_TO_DATA(x) (ParserStackData)((char *)x)
 
 #define STACK_DATA_TO_INT(x) ((int)x.result)
-#define STACK_DATA_TO_TERM(x) ((Term_type)x.TERM_NONTERM)
-#define STACK_DATA_TO_SYMTABLE(x) ((SymTableBinTreePtr)x.SYM_TABLE)
-#define STACK_DATA_TO_TOKEN(x) ((Token)x.token)
-#define STACK_DATA_TO_TOKEN_TYPE(x) ((Token_type)x.tokenType)
+#define STACK_DATA_TO_CHAR(x) ((char)x.term)
+#define STACK_DATA_TO_FLOAT(x) ((float)x.value)
+#define STACK_DATA_TO_TOKEN(x) ((char *)x.token)
 
 typedef union {
 	int result;
-	Term_type TERM_NONTERM;
-	SymTableBinTreePtr SYM_TABLE;
-	Token token;
-	Token_type tokenType;
+	char term;
+	float value;
+	char * token;
 } ParserStackData;
 
 typedef struct parserStackNode {
@@ -68,14 +69,15 @@ void parserStackFree(ParserStackPtr *stack)
 	parserStackInit(stack);
 }
 
-
-
 int main()
 {
     ParserStackPtr semanticStack = NULL;
-    parserStackPush(semanticStack, STACK_TOKEN_TO_DATA(currentToken));
-    parserStackPush(semanticStack, STACK_TERM_TO_DATA(GrammmarExprLeftRuleList[PREC_GRAMM_RULES_TO_RULE(found)]));
-    STACK_DATA_TO_TERM(parserStackPeek(&semanticStack));
+	float value = 3.14;
+	int result = 1;
+    parserStackPush(&semanticStack, STACK_FLOAT_TO_DATA(value));
+    parserStackPush(&semanticStack, STACK_INT_TO_DATA(result));
+    printf("Value: %d\n", STACK_DATA_TO_INT(parserStackPop(&semanticStack)));
+    printf("Value: %f\n", STACK_DATA_TO_FLOAT(parserStackPeek(&semanticStack)));
     parserStackFree(&semanticStack);
     return 0;
 }
