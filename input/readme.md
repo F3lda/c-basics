@@ -35,8 +35,9 @@ NOTES:
 - in text mode, the native newline sequence is translated to `'\n'`
 - never use `fflush(stdin);` or similar functions to clear STDIN buffer -> the only way to clear unread input is by reading it! -> `fflush(stream);` is only for output streams!
 ### Links
-http://www.sekrit.de/webdocs/c/beginners-guide-away-from-scanf.html
-https://stackoverflow.com/questions/5240789/scanf-leaves-the-newline-character-in-the-buffer
+- http://www.sekrit.de/webdocs/c/beginners-guide-away-from-scanf.html
+
+- https://stackoverflow.com/questions/5240789/scanf-leaves-the-newline-character-in-the-buffer
 
 ## Parsing string
 After reading input you can parse it with `sscanf();` function:
