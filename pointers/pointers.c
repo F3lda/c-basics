@@ -41,5 +41,12 @@ int main()
 
     free(p_a);
 
+
+
+    // arrays
+    char test[] = "hello"; // test is an address (of the first char)
+    char *point = test; // point is a pointer
+    printf("%d -> %d %d %d -> %s (%s)\n", &point, point, &test, test, test, test+1);
+
     return (EXIT_SUCCESS);
 }
