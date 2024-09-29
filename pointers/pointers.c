@@ -1,8 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+void funcExmpl(int A, int B) {printf("FNC: %d %d\n", A, B);} // FUCNTION (it contains address [as value] {funcExmpl})
+
 int main()
 {
+    char varChar = 0; // VARIABLE (it contains value {varChar} at address {&varChar})
+    char *varCharPtr = &varChar; // POINTER (at address {&varCharPtr} it contains address [as value] {varCharPtr} to value {*varCharPtr})
+    char varArrChar[3] = {"000"}; // ARRAY (it contains address [as value] {varArrChar} to value {*varArrChar})
+    
+
+    // VARIABLE
+    varChar = 'A';
+
+    // POINTER
+    *varCharPtr = 'B';
+
+    // ARRAY
+    *varArrChar = 'A'; // == varArrChar[0]
+    varArrChar[1] = 'B';
+    *(varArrChar+2) = 'C';
+    
+    printf("<%c> - <%c> <%c> <%c>\n", varChar, *varArrChar, *(varArrChar+1), varArrChar[2]);
+
+    
+    // ARRAY STRING on HEAP OR STACK
+    varCharPtr = "String1"; // ON HEAP - pointer to address to string
+    char varCharArr[] = "String2"; // ON STACK - variable length array (VLA), its size is determined at runtime
+    printf("<%s> <%s>\n", varCharPtr, varCharArr);
+
+    // FUNCTION
+    void (*funcPtr)(int, int) = funcExmpl; // save function address to function pointer
+    funcPtr(1, 7);
+
+
+
+
+
+
+    // POINTERS basics
+    printf("\n\n\n");
     int a, *p_a;
     a = 56;
     p_a = &a; // Stores the address of variable a in p_a
@@ -40,13 +78,6 @@ int main()
 
 
     free(p_a);
-
-
-
-    // arrays
-    char test[] = "hello"; // test is an address (of the first char)
-    char *point = test; // point is a pointer
-    printf("%d -> %d %d %d -> %s (%s)\n", &point, point, &test, test, test, test+1);
 
     return (EXIT_SUCCESS);
 }
