@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o strings.exe
+    gcc main.c -o strings.exe

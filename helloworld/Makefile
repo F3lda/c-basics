@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o helloworld.exe
+    gcc main.c -o helloworld.exe

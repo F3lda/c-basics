@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o cross-platform.exe
+    gcc main.c -o cross-platform.exe

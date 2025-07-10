@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o debug.exe
+    gcc main.c -o debug.exe

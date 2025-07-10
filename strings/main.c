@@ -28,13 +28,13 @@ size_t Strlen(const char * str)
 // set string to uppercase
 void strtoupper(char * str)
 {
-	while(*str) {*(str++) = toupper((unsigned char) *str);}
+    while(*str) {*(str++) = toupper((unsigned char) *str);}
 }
 
 // set string to lowercase
 void strtolower(char *str)
 {
-	while(*str) {*(str++) = tolower((unsigned char) *str);}
+    while(*str) {*(str++) = tolower((unsigned char) *str);}
 }
 
 void trim(char * str)
@@ -58,13 +58,13 @@ void trim_newline(char * str)
 
 int is_alphanumeric(char * str)
 {
-	int i;
-	for (i = 0; i < strlen(str); i++){
-		if (!(('0' <= str[i] && str[i] <= '9') || ('a' <= str[i] && str[i] <= 'z') || ('A' <= str[i] && str[i] <= 'Z'))) {
-			return 0;
-		}
-	}
-	return 1;
+    int i;
+    for (i = 0; i < strlen(str); i++){
+        if (!(('0' <= str[i] && str[i] <= '9') || ('a' <= str[i] && str[i] <= 'z') || ('A' <= str[i] && str[i] <= 'Z'))) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 
@@ -133,7 +133,7 @@ int strplcsubstr(char * str, int str_max_length, char * substr_find, char * subs
 int sscand(const char *str, double *num)
 {
     char temp_str[2];
-	int result;
+    int result;
     if((result = sscanf(str, "%lf%1s", num, temp_str)) == 1){
         return 0; // OK - only number or number with white-spaces
     }
@@ -145,7 +145,7 @@ int sscand(const char *str, double *num)
 int sscani(const char *str, int *num)
 {
     char temp_str[2];
-	int result;
+    int result;
     if((result = sscanf(str, "%d%1s", num, temp_str)) == 1){
         return 0; // OK - only number or number with white-spaces
     }
@@ -182,20 +182,20 @@ int main()
     printf("snprintf: <%s>\n", temp1);
 
 
-	// strcat with length check - using memcpy
-	char temp2[255] = "GET ";
-	memcpy(&temp2[strlen(temp2)], "file_url", sizeof(temp2)-1-strlen(temp2));
-	memcpy(&temp2[strlen(temp2)], " FSP/1.0\r\nHostname: ", sizeof(temp2)-1-strlen(temp2));
-	memcpy(&temp2[strlen(temp2)], "file_server_name", sizeof(temp2)-1-strlen(temp2));
-	memcpy(&temp2[strlen(temp2)], "\r\nAgent: name\r\n\r\n", sizeof(temp2)-1-strlen(temp2));
-	printf("strcat - memcpy: <%s>\n", temp2);
+    // strcat with length check - using memcpy
+    char temp2[255] = "GET ";
+    memcpy(&temp2[strlen(temp2)], "file_url", sizeof(temp2)-1-strlen(temp2));
+    memcpy(&temp2[strlen(temp2)], " FSP/1.0\r\nHostname: ", sizeof(temp2)-1-strlen(temp2));
+    memcpy(&temp2[strlen(temp2)], "file_server_name", sizeof(temp2)-1-strlen(temp2));
+    memcpy(&temp2[strlen(temp2)], "\r\nAgent: name\r\n\r\n", sizeof(temp2)-1-strlen(temp2));
+    printf("strcat - memcpy: <%s>\n", temp2);
 
 
-	// strcat with length check - using snprintf
-	char temp3[100] = {0};
-	snprintf(temp3, 100, "%s%s", temp3, "this is");
+    // strcat with length check - using snprintf
+    char temp3[100] = {0};
+    snprintf(temp3, 100, "%s%s", temp3, "this is");
 
-	snprintf(temp3+strlen(temp3), sizeof(temp3)-strlen(temp3), "%s", " working");
+    snprintf(temp3+strlen(temp3), sizeof(temp3)-strlen(temp3), "%s", " working");
 
     printf("strcat - snprintf: <%s>\n", temp3);
 

@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o matrix.exe
+    gcc main.c -o matrix.exe

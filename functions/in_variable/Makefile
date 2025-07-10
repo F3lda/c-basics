@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o functions.exe
+    gcc main.c -o functions.exe

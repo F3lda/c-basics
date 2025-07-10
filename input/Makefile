@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o input.exe
+    gcc main.c -o input.exe

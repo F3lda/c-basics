@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o callback.exe
+    gcc main.c -o callback.exe

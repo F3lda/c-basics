@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o list.exe
+    gcc main.c -o list.exe
